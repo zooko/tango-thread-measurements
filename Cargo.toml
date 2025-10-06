@@ -1,0 +1,30 @@
+cargo-features = ["profile-rustflags"]
+
+[package]
+name = "tangothreadmeasurements"
+version = "1.0.0"
+edition = "2024"
+
+[dev-dependencies]
+tango-bench = "0.6.0"
+
+[[bench]]
+inherits = "release"
+name = "tangotb"
+harness = false
+
+# For optimized release build:
+[profile.release]
+opt-level = 3
+debug = false
+codegen-units = 1
+lto = "fat"
+debug-assertions = false
+overflow-checks = false
+rustflags = ["-C", "target-cpu=native"]
+
+[profile.profiling]
+inherits = "release"
+debug = true
+lto = false
+# split-debuginfo = "packed" # ??? do we want this?
