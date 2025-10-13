@@ -6,28 +6,6 @@ use std::thread;
 
 use std::sync::Arc;
 
-fn gen_mt_bencher_generic<F>(f: F, num_threads: u64, num_iters: u64) -> impl FnMut(Bencher) -> Box<dyn ErasedSampler>
-where
-    F: Fn(u64) + Send + Sync + 'static
-{
-    let f = Arc::new(f);
-
-    move |b: Bencher| {
-        let f = Arc::clone(&f);
-
-        b.iter(move || {
-            thread::scope(|scope| {
-                for _t in 0..num_threads {
-                    let f = Arc::clone(&f);
-                    scope.spawn(move || {
-                        f(num_iters);
-                    });
-                }
-            });
-        })
-    }
-}
-
 fn gen_mt_bencher_dummyfunc(num_threads: u64, num_iters: u64) -> impl FnMut(Bencher) -> Box<dyn ErasedSampler>
 {
     move |b: Bencher| {
