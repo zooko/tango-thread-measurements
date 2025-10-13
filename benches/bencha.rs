@@ -58,18 +58,18 @@ fn tangotb_benchmarks() -> impl IntoBenchmarks {
         benchmark_fn("0-threads-1M-iters",
                      gen_st_bencher_dummyfunc(1_000_000)
         ),
-        benchmark_fn("1-threads-1K-iters",
-                     gen_mt_bencher_dummyfunc(1, 1000)
-        ),
-        benchmark_fn("1-threads-1M-iters",
-                     gen_mt_bencher_dummyfunc(1, 1_000_000)
-        ),
-        benchmark_fn("32-threads-1K-iters",
-                     gen_mt_bencher_dummyfunc(32, 1_000)
-        ),
-        benchmark_fn("32-threads-1M-iters",
-                     gen_mt_bencher_dummyfunc(32, 1_000_000)
-        ),
+//        benchmark_fn("1-threads-1K-iters",
+//                     gen_mt_bencher_dummyfunc(1, 1000)
+//        ),
+//        benchmark_fn("1-threads-1M-iters",
+//                     gen_mt_bencher_dummyfunc(1, 1_000_000)
+//        ),
+//        benchmark_fn("32-threads-1K-iters",
+//                     gen_mt_bencher_dummyfunc(32, 1_000)
+//        ),
+//        benchmark_fn("32-threads-1M-iters",
+//                     gen_mt_bencher_dummyfunc(32, 1_000_000)
+//        ),
    ]
 }
 

@@ -10,7 +10,7 @@ tango-bench = "0.6.0"
 
 [[bench]]
 inherits = "release"
-name = "tangotb"
+name = "bencha"
 harness = false
 
 # For optimized release build:
