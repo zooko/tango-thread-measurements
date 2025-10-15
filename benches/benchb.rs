@@ -6,20 +6,20 @@ use std::thread;
 
 use std::sync::Arc;
 
-fn gen_mt_bencher_dummyfunc(num_threads: u64, num_iters: u64) -> impl FnMut(Bencher) -> Box<dyn ErasedSampler>
-{
-    move |b: Bencher| {
-        b.iter(move || {
-            thread::scope(|scope| {
-                for _t in 0..num_threads {
-                    scope.spawn(move || {
-                        help_test_dummy_func(num_iters);
-                    });
-                }
-            });
-        })
-    }
-}
+// fn gen_mt_bencher_dummyfunc(num_threads: u64, num_iters: u64) -> impl FnMut(Bencher) -> Box<dyn ErasedSampler>
+// {
+//     move |b: Bencher| {
+//         b.iter(move || {
+//             thread::scope(|scope| {
+//                 for _t in 0..num_threads {
+//                     scope.spawn(move || {
+//                         help_test_dummy_func(num_iters);
+//                     });
+//                 }
+//             });
+//         })
+//     }
+// }
 
 fn gen_st_bencher_dummyfunc(num_iters: u64) -> impl FnMut(Bencher) -> Box<dyn ErasedSampler>
 {
