@@ -6,6 +6,7 @@ version = "1.0.0"
 edition = "2024"
 
 [dev-dependencies]
+# tango-bench = { version = "0.6.0", path = "../tango/tango-bench" }
 tango-bench = "0.6.0"
 
 [[bench]]
