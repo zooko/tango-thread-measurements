@@ -42,7 +42,7 @@ pub fn dummy_func(maxi: u8, maxj: u8) -> u8 {
 pub fn help_test_dummy_func(iters: u64) -> u8 {
     let mut a = 1;
     for _i in 0..iters {
-        a ^= dummy_func(2, 3);
+        a ^= dummy_func(21, 22);
     }
 
     a
