@@ -40,7 +40,7 @@ pub fn dummy_func(maxi: u8, maxj: u8) -> u8 {
 }
 
 pub fn help_test_dummy_func() -> u8 {
-    1 ^ dummy_func(21, 22)
+    1 ^ dummy_func(3, 2)
 }
 
 fn tangotb_benchmarks() -> impl IntoBenchmarks {
