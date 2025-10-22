@@ -1,12 +1,9 @@
-cargo-features = ["profile-rustflags"]
-
 [package]
 name = "tangothreadmeasurements"
 version = "1.0.0"
 edition = "2024"
 
 [dev-dependencies]
-# tango-bench = { version = "0.6.0", path = "../tango/tango-bench" }
 tango-bench = "0.6.0"
 # tango-bench = { version = "1.0.0", path="../tango/tango-bench" }
 
@@ -23,7 +20,6 @@ codegen-units = 1
 lto = "fat"
 debug-assertions = false
 overflow-checks = false
-rustflags = ["-C", "target-cpu=native"]
 
 [profile.profiling]
 inherits = "release"
