@@ -26,13 +26,11 @@ fn gen_st_bencher_dummyfunc() -> impl FnMut(Bencher) -> Box<dyn ErasedSampler>
     }
 }
     
-use std::hint::black_box;
-#[inline(never)]
 pub fn dummy_func(maxi: u8, maxj: u8) -> u8 {
     let mut a = 1;
     for i in 0..maxi {
         for j in 0..maxj {
-            a ^= black_box(i.wrapping_mul(j));
+            a ^= i.wrapping_mul(j);
         }
     }
 
@@ -40,7 +38,7 @@ pub fn dummy_func(maxi: u8, maxj: u8) -> u8 {
 }
 
 pub fn help_test_dummy_func() -> u8 {
-    1 ^ dummy_func(3, 2)
+    dummy_func(3, 2)
 }
 
 fn tangotb_benchmarks() -> impl IntoBenchmarks {
