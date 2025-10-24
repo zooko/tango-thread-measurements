@@ -37,8 +37,9 @@ pub fn dummy_func(maxi: u8, maxj: u8) -> u8 {
     a
 }
 
+use std::hint::black_box;
 pub fn help_test_dummy_func() -> u8 {
-    dummy_func(3, 2)
+    black_box(dummy_func(3, 2))
 }
 
 fn tangotb_benchmarks() -> impl IntoBenchmarks {
