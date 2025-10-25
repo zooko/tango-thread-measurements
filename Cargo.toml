@@ -12,17 +12,5 @@ inherits = "release"
 name = "benchb"
 harness = false
 
-# For optimized release build:
 [profile.release]
-opt-level = 3
-debug = false
-codegen-units = 1
-lto = "fat"
-debug-assertions = false
-overflow-checks = false
-
-[profile.profiling]
-inherits = "release"
-debug = true
-lto = false
-# split-debuginfo = "packed" # ??? do we want this?
+# lto = "fat"
