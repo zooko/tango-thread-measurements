@@ -8,6 +8,5 @@ tango-bench = "0.6.0"
 # tango-bench = { version = "1.0.0", path="../tango/tango-bench" }
 
 [[bench]]
-inherits = "release"
 name = "bencha"
 harness = false
