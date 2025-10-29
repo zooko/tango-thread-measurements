@@ -21,7 +21,7 @@ pub fn dummy_func(maxi: u64, maxj: u64) -> u64 {
 
 use std::hint::black_box;
 pub fn help_test_dummy_func() -> u64 {
-    black_box(dummy_func(black_box(2520), black_box(2530)))
+    black_box(dummy_func(black_box(190), black_box(200)))
 }
 
 fn tangotb_benchmarks() -> impl IntoBenchmarks {
