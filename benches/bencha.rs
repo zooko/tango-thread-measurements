@@ -2,15 +2,10 @@ use tango_bench::{Bencher, ErasedSampler, benchmark_fn, tango_benchmarks, tango_
 
 use std::thread;
 
-fn gen_mt_bencher_dummyfunc() -> impl FnMut(Bencher) -> Box<dyn ErasedSampler>
-{
+fn gen_st_bencher_dummyfunc() -> impl FnMut(Bencher) -> Box<dyn ErasedSampler> {
     move |b: Bencher| {
         b.iter(move || {
-            thread::scope(|scope| {
-                scope.spawn(move || {
-                    help_test_dummy_func();
-                });
-            });
+            help_test_dummy_func();
         })
     }
 }
@@ -34,7 +29,7 @@ pub fn help_test_dummy_func() -> u64 {
 fn tangotb_benchmarks() -> impl IntoBenchmarks {
     [
         benchmark_fn("1-threads-1-iters",
-                     gen_mt_bencher_dummyfunc()
+                     gen_st_bencher_dummyfunc()
         ),
     ]
 }
