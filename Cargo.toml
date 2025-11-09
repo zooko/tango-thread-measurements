@@ -10,3 +10,6 @@ tango-bench = "0.6.0"
 [[bench]]
 name = "bencha"
 harness = false
+
+[dependencies]
+thousands = "0.2.0"
