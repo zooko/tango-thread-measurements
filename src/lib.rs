@@ -11,6 +11,7 @@ pub fn dummy_func(maxi: u64, maxj: u64) -> u64 {
 
 use std::hint::black_box;
 pub fn help_test_dummy_func() -> u64 {
-    black_box(dummy_func(black_box(6), black_box(7)))
+    const I: u64 = 1;
+    black_box(dummy_func(black_box(I), black_box(I)))
 }
 
